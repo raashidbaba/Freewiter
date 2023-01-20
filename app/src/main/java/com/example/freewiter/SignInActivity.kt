@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -90,9 +91,11 @@ class SignInActivity : AppCompatActivity() {
             val mainActivityIntent = Intent(this,MainActivity::class.java)
             startActivity(mainActivityIntent)
             finish()
-        }else
+        }else {
             sign_in.visibility = View.VISIBLE
-        progressBar.visibility = View.GONE
+            progressBar.visibility = View.GONE
+            Toast.makeText(this, "it didnt happened", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 
